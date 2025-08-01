@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Все товары</title>
+    <style>
+        body { font-family: Arial; margin: 30px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f8f9fa; }
+        tr:hover { background-color: #f1f1f1; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Найдено товаров: {{ products|length }}</h1>
+    <table>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Цена</th>
+            <th>URL</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td><a href="{{ product.url }}" target="_blank">Ссылка</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
